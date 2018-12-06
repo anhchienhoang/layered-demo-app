@@ -1,0 +1,13 @@
+index:
+    path: /
+    controller: DemoApp\Infrastructure\Framework\Symfony\Controller\DefaultController::index
+
+createUser:
+    path: /create-user
+    controller: DemoApp\Infrastructure\Framework\Symfony\Controller\DefaultController::createUser
+    methods: [POST]
+
+getUser:
+    path: /user/{id}
+    controller: DemoApp\Infrastructure\Framework\Symfony\Controller\DefaultController::getUserData
+    methods: [GET]

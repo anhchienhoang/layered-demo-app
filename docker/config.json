@@ -1,0 +1,18 @@
+{
+  "listeners": {
+    "*:8300": {
+      "application": "default"
+    }
+  },
+  "applications": {
+    "default": {
+      "type": "php",
+      "root": "/var/www/src/DemoApp/Infrastructure/Framework/Symfony",
+      "script": "index.php",
+      "index": "index.php",
+      "environment": {
+        "APP_ENV": "dev"
+      }
+    }
+  }
+}

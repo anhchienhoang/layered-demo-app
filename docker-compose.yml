@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+    demo-db:
+        container_name: demo-db
+        hostname: demo-db
+        image: mysql:5.7
+        ports:
+            - "3308:3306"
+        volumes:
+            - ./docker/dump:/docker-entrypoint-initdb.d
+            - ./.docker/pfm/mysql/conf.d:/etc/mysql/conf.d
+            - ./.docker/data/mysql:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=web
+            - MYSQL_USER=root
+            - MYSQL_PASSWORD=root
+
+    demo-app:
+        container_name: demo-app
+        hostname: demo-app
+        ports:
+            - 8080:8300
+        build: ./docker
+        links:
+            - demo-db
+        volumes:
+            - ".:/var/www/"
+        environment:
+            - APP_ENV=dev
+            - APP_SECRET=5a6fe8a029c06c8cdd760ecd12c42bd4
+            - DATABASE_URL=mysql://root:root@demo-db:3306/web
