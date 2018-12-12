@@ -1,6 +1,8 @@
 # Demo application
 Demo app for the presentation
 
+Slides: https://docs.google.com/presentation/d/1tIj_wf7iKkUnPy3De7wCGm0bCXiV3a0UMaoQoHJybyg/edit?usp=sharing
+
 # Setup
 Start docker-compose
 ```bash
